@@ -1,0 +1,61 @@
+header {
+  background-color: orange;
+}
+
+nav {
+  background-color: tan;
+}
+
+main {
+  background-color: lightgoldenrodyellow;
+}
+
+aside {
+  background-color: darkgoldenrod;
+}
+
+footer {
+  background-color: brown;
+}
+
+:root {
+  font-size: 10px;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+}
+
+body > * {
+  flex: 8rem 0 0;
+}
+
+header,
+nav,
+aside,
+footer,
+main {
+  display: flow-root;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: auto 1 0;
+  gap: 1rem;
+}
+
+.fixed-sidebar {
+  flex: 13rem 0 0;
+}
+
+main {
+  flex-grow: 1;
+}
