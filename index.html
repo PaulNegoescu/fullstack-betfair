@@ -4,7 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript</title>
-    <script src="scripts/objects.js" defer></script>
+
+    <link rel="stylesheet" href="styles/dom.css" />
+
+    <script src="scripts/dom.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <section>
+      <h1>Counter</h1>
+      <output data-counter-output>0</output>
+      <p>
+        <input type="number" name="step" data-counter-step-input />
+      </p>
+      <p>
+        <button data-counter-button="decrement" data-counter-step="5">
+          -5
+        </button>
+        <button data-counter-button="decrement">-</button>
+        <button data-counter-button="reset">Reset</button>
+        <button data-counter-button="increment">+</button>
+        <button data-counter-button="increment" data-counter-step="5">
+          +5
+        </button>
+      </p>
+    </section>
+    <section>
+      <h1>Todos</h1>
+      <ul data-todos-list></ul>
+    </section>
+  </body>
 </html>
