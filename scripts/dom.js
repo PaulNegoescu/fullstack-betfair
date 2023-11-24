@@ -64,6 +64,7 @@
   const list = document.querySelector('[data-todos-list]');
 
   function hidrateList(todos) {
+    const fragment = document.createDocumentFragment();
     for (const todo of todos) {
       const item = document.createElement('li');
       const check = document.createElement('input');
@@ -75,8 +76,9 @@
       label.textContent = todo.title;
       label.prepend(check);
       item.append(label);
-      list.append(item);
+      fragment.append(item);
     }
+    list.append(fragment);
   }
 
   hidrateList(todos);

@@ -5,3 +5,11 @@
 .positive {
   color: #bada55;
 }
+
+.hidden {
+  display: none !important;
+}
+
+.loader {
+  position: absolute;
+}
