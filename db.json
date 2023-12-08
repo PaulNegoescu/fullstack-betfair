@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "email": "p@p.com",
+      "password": "$2a$10$MphXLGRLQCdMAvL0.xUV..6HY00CHGvZ1Dwd5qqdjAkoEQK5CyQS.",
+      "firstName": "Paul",
+      "lastName": "Negoescu",
+      "id": 1
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "title": "Buy Milk"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import clsx from 'clsx';
 import styles from './Counter.module.css';
 
 interface Action {
@@ -6,7 +7,6 @@ interface Action {
   payload: number;
 }
 
-const initialCount = 0;
 function counterReducer(oldState: number, action: Action) {
   let newState = oldState;
   switch (action.type) {
@@ -23,14 +23,21 @@ function counterReducer(oldState: number, action: Action) {
   return newState;
 }
 
-export function Counter() {
+export function Counter({ initialCount = 0 }: { initialCount?: number }) {
   const [count, dispatch] = useReducer(counterReducer, initialCount);
 
   return (
     <>
       <h1>Counter</h1>
       <p>
-        <output className={styles.positive}>{count}</output>
+        <output
+          className={clsx({
+            [styles.positive]: count > 0,
+            [styles.negative]: count < 0,
+          })}
+        >
+          {count}
+        </output>
       </p>
       <p>
         <button onClick={() => dispatch({ type: 'update', payload: -5 })}>
