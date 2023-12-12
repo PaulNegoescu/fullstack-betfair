@@ -27,6 +27,9 @@ export function Nav() {
         <li>
           <BrandNavLink to="weather">Weather</BrandNavLink>
         </li>
+        <li>
+          <BrandNavLink to="films">Films</BrandNavLink>
+        </li>
         {user && (
           <li className={styles.shiftRight}>
             Welcome, {user.firstName}!
