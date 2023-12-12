@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InferType, object, ref, string } from 'yup';
+import { toast } from 'react-toastify';
+import { useAuthContext } from './AuthContext';
 
 const commonSchema = {
   email: string()
@@ -39,6 +41,8 @@ export function Auth() {
     resolver: yupResolver(isRegister ? registerSchema : loginSchema),
   });
 
+  const { login } = useAuthContext();
+
   async function onSubmit(
     values: InferType<typeof registerSchema | typeof loginSchema>
   ) {
@@ -56,9 +60,19 @@ export function Auth() {
         },
         body: JSON.stringify(valuesToSend),
       }
-    ).then((res) => res.json());
+    ).then(async (res) => {
+      const dataPromise = res.json();
 
-    console.log(data);
+      if (!res.ok) {
+        const message = await dataPromise;
+        toast.error(message);
+        throw new Error(message);
+      }
+      return dataPromise;
+    });
+
+    toast.success('You logged in successfully.');
+    login(data);
   }
 
   return (
