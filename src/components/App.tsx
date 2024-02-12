@@ -9,6 +9,7 @@ import { FilmLayout } from '../features/Films/FilmLayout';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import { Todos } from '../features/Todos/Todos';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>Homepage</h1>} />
           <Route path="counter" element={<Counter initialCount={6} />} />
+          <Route path="todos" element={<Todos />} />
           <Route path="weather" element={<Weather />} />
           <Route path="films/*" element={<FilmLayout />} />
           <Route path="login" element={<Auth />} />
